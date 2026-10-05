@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>6B Protein Synthesis Practice</title>
+
+<style>
+:root{
+  --teal:#1196b7;
+  --orange:#e7964f;
+  --ink:#20242a;
+  --pale:#f2f7f8;
+  --green:#e7f7ec;
+  --red:#fff0ed;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#edf3f5;
+  color:var(--ink);
+}
+header{
+  background:var(--teal);
+  color:white;
+  text-align:center;
+  padding:22px 12px;
+}
+header h1{margin:0;font-size:34px}
+header p{margin:8px 0 0;font-size:18px}
+main{max-width:1000px;margin:auto;padding:16px}
+.card{
+  background:white;
+  margin:15px 0;
+  padding:20px;
+  border-radius:14px;
+  border-top:5px solid var(--teal);
+  box-shadow:0 2px 8px #0001;
+}
+h2{color:#087c98;margin-top:0}
+.rules{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+.rule{
+  background:var(--pale);
+  padding:14px;
+  border-radius:9px;
+  text-align:center;
+  font-size:18px;
+}
+.seq{
+  font-family:Consolas,monospace;
+  font-size:20px;
+  letter-spacing:1px;
+  background:#f3f5f6;
+  padding:7px 10px;
+  border-radius:7px;
+  display:inline-block;
+}
+input[type=text],select,textarea{
+  padding:10px;
+  border:1px solid #b8c8cf;
+  border-radius:7px;
+  font-size:17px;
+  width:100%;
+  max-width:600px;
+}
+textarea{max-width:100%}
+button,.videoBtn{
+  background:var(--orange);
+  color:#fff;
+  border:0;
+  border-radius:8px;
+  padding:10px 15px;
+  font-weight:bold;
+  font-size:16px;
+  cursor:pointer;
+  display:inline-block;
+  text-decoration:none;
+}
+.videoBtn{background:var(--teal)}
+.check{margin-top:10px}
+.feedback{
+  display:none;
+  margin-top:10px;
+  padding:10px;
+  border-radius:8px;
+}
+.good{background:var(--green)}
+.bad{background:var(--red)}
+.step{font-weight:bold;color:#087c98}
+.mini{font-size:14px;color:#5d686d}
+@media(max-width:650px){
+  .rules{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>6B Protein Synthesis Practice</h1>
+<p>Practice each step carefully and show that you understand the protein synthesis process.</p>
+</header>
+
+<main>
+
+<div class="card">
+<h2>Student Information</h2>
+<p>
+Complete the practice, use <b>Check My Work</b> to correct mistakes,
+and ask questions when you need help. Your grade will be based on your
+<b>final corrected score</b>.
+</p>
+
+<label><b>Name</b></label><br>
+<input id="studentName" type="text" placeholder="First and last name">
+
+<br><br>
+
+<label><b>Block</b></label><br>
+<select id="block">
+<option value="">Choose your block</option>
+<option>2nd Block</option>
+<option>4th Block</option>
+</select>
+</div>
+
+
+<div class="card">
+<h2>Your Road Map</h2>
+
+<div class="rules">
+
+<div class="rule">
+<b>DNA Base Pairing</b><br>
+A ↔ T<br>
+C ↔ G
+</div>
+
+<div class="rule">
+<b>Transcription</b><br>
+DNA → mRNA<br>
+A → U &nbsp; T → A<br>
+C → G &nbsp; G → C
+</div>
+
+<div class="rule">
+<b>NUCLEUS</b><br>
+Transcription happens here.
+</div>
+
+<div class="rule">
+<b>RIBOSOME / CYTOPLASM</b><br>
+Translation happens here.<br>
+This is where the protein is built.
+</div>
+
+</div>
+</div>
+
+
+<div class="card">
+<h2>Practice 1 — DNA Base Pairing</h2>
+
+<p>
+Complete the complementary DNA strand.
+Remember: <b>A pairs with T and C pairs with G.</b>
+</p>
+
+<p><span class="seq">A T G C C A T G</span></p>
+
+<input id="p1" type="text" placeholder="Type the complementary DNA strand">
+
+<br>
+
+<button class="check"
+onclick="checkText('p1','TACGGTAC','f1','T A C G G T A C')">
+Check My Work
+</button>
+
+<div id="f1" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Practice 2 — DNA Base Pairing</h2>
+
+<p><span class="seq">C G T A A C G C</span></p>
+
+<input id="p2" type="text" placeholder="Type the complementary DNA strand">
+
+<br>
+
+<button class="check"
+onclick="checkText('p2','GCATTGCG','f2','G C A T T G C G')">
+Check My Work
+</button>
+
+<div id="f2" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Practice 3 — Transcription</h2>
+
+<p>
+<span class="step">DNA template:</span>
+<span class="seq">TAC GGA CTT</span>
+</p>
+
+<p>
+Make the mRNA strand. Remember:
+<b>RNA uses U instead of T.</b>
+</p>
+
+<input id="p3" type="text" placeholder="Type the mRNA sequence">
+
+<br>
+
+<button class="check"
+onclick="checkText('p3','AUGCCUGAA','f3','AUG CCU GAA')">
+Check My Work
+</button>
+
+<div id="f3" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Practice 4 — Transcription</h2>
+
+<p>
+<span class="step">DNA template:</span>
+<span class="seq">TAC CGA AAA ACT</span>
+</p>
+
+<input id="p4" type="text" placeholder="Type the mRNA sequence">
+
+<br>
+
+<button class="check"
+onclick="checkText('p4','AUGGCUUUUUGA','f4','AUG GCU UUU UGA')">
+Check My Work
+</button>
+
+<div id="f4" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Practice 5 — Where Does It Happen?</h2>
+
+<p><b>Where does transcription happen?</b></p>
+
+<input id="p5" type="text" placeholder="Type the location">
+
+<br>
+
+<button class="check"
+onclick="checkAny('p5',['NUCLEUS'],'f5',
+'Nucleus — DNA → mRNA happens in the nucleus.')">
+Check My Work
+</button>
+
+<div id="f5" class="feedback"></div>
+
+
+<p><b>Where does translation happen?</b></p>
+
+<input id="p6" type="text" placeholder="Type the location">
+
+<br>
+
+<button class="check"
+onclick="checkAny(
+'p6',
+['RIBOSOME','RIBOSOMES','CYTOPLASM','RIBOSOMEINCYTOPLASM','ATRIBOSOME'],
+'f6',
+'At a ribosome in the cytoplasm — this is where the protein is built.'
+)">
+Check My Work
+</button>
+
+<div id="f6" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Practice 6 — Read the Codons</h2>
+
+<p>
+Use your <b>mRNA codon wheel</b>.
+Start in the center with the first letter, move outward for the second,
+and then the third.
+</p>
+
+<p><b>Use the codon wheel from your class notes while completing this section.</b></p>
+
+<p><span class="seq">AUG</span> codes for:</p>
+
+<input id="p7" type="text" placeholder="Amino acid">
+
+<br>
+
+<button class="check"
+onclick="checkAny(
+'p7',
+['METHIONINE','MET'],
+'f7',
+'Methionine. AUG is also the START codon.'
+)">
+Check My Work
+</button>
+
+<div id="f7" class="feedback"></div>
+
+
+<p><span class="seq">GCU</span> codes for:</p>
+
+<input id="p8" type="text" placeholder="Amino acid">
+
+<br>
+
+<button class="check"
+onclick="checkAny(
+'p8',
+['ALANINE','ALA'],
+'f8',
+'Alanine.'
+)">
+Check My Work
+</button>
+
+<div id="f8" class="feedback"></div>
+
+
+<p><span class="seq">UUU</span> codes for:</p>
+
+<input id="p9" type="text" placeholder="Amino acid">
+
+<br>
+
+<button class="check"
+onclick="checkAny(
+'p9',
+['PHENYLALANINE','PHE'],
+'f9',
+'Phenylalanine.'
+)">
+Check My Work
+</button>
+
+<div id="f9" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Practice 7 — Put the Whole Process Together</h2>
+
+<p>
+<span class="step">DNA template:</span>
+<span class="seq">TAC CGA AAA ACT</span>
+</p>
+
+<p><b>Step 1:</b> Transcribe the DNA into mRNA.</p>
+
+<input id="p10" type="text" placeholder="mRNA sequence">
+
+<br>
+
+<button class="check"
+onclick="checkText(
+'p10',
+'AUGGCUUUUUGA',
+'f10',
+'AUG GCU UUU UGA'
+)">
+Check Step 1
+</button>
+
+<div id="f10" class="feedback"></div>
+
+
+<p>
+<b>Step 2:</b>
+Use the codons to build the amino-acid chain/protein.
+</p>
+
+<input id="p11"
+type="text"
+placeholder="Example: Methionine - Alanine - ...">
+
+<br>
+
+<button class="check" onclick="checkProtein()">
+Check Step 2
+</button>
+
+<div id="f11" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Practice 8 — One More From Start to Finish</h2>
+
+<p>
+<span class="step">DNA template:</span>
+<span class="seq">TAC CCG GAA ATT</span>
+</p>
+
+<p><b>DNA → mRNA:</b></p>
+
+<input id="p12" type="text" placeholder="mRNA sequence">
+
+<br>
+
+<button class="check"
+onclick="checkText(
+'p12',
+'AUGGGCCUUUAA',
+'f12',
+'AUG GGC CUU UAA'
+)">
+Check Transcription
+</button>
+
+<div id="f12" class="feedback"></div>
+
+
+<p><b>mRNA → amino acids/protein:</b></p>
+
+<input id="p13" type="text" placeholder="Amino-acid chain">
+
+<br>
+
+<button class="check" onclick="checkProtein2()">
+Check Translation
+</button>
+
+<div id="f13" class="feedback"></div>
+</div>
+
+
+<div class="card">
+<h2>Final Reflection — Explain Protein Synthesis in Your Own Words</h2>
+
+<p>
+<b>Step 1:</b> Watch this short review of
+transcription and translation.
+</p>
+
+<p>
+<a class="videoBtn"
+href="https://www.youtube.com/watch?v=mSMjwxNK2EU"
+target="_blank">
+▶ Watch the Short Video
+</a>
+</p>
+
+<p>
+<b>Step 2:</b> In your own words, explain how a cell uses
+DNA to make a protein.
+</p>
+
+<p>
+Be sure to include:
+<b>
+DNA, nucleus, transcription, mRNA, ribosome,
+translation, codon, tRNA, amino acids, and protein.
+</b>
+</p>
+
+<textarea
+id="studentExplanation"
+rows="8"
+placeholder="Explain the process here in your own words...">
+</textarea>
+
+<br>
+
+<button class="check" onclick="revealTeacherExplanation()">
+Submit My Explanation & See Teacher Explanation
+</button>
+
+<div id="explainFeedback" class="feedback"></div>
+
+
+<div id="teacherExplanation"
+style="
+display:none;
+margin-top:14px;
+padding:16px;
+background:#f2f7f8;
+border-left:5px solid #1196b7;
+border-radius:8px;
+">
+
+<h3 style="margin-top:0;color:#087c98;">
+Teacher Explanation
+</h3>
+
+<p>
+DNA contains the instructions for making a protein.
+During <b>transcription</b>, which happens in the
+<b>nucleus</b>, a section of DNA is used to make an
+<b>mRNA</b> copy.
+</p>
+
+<p>
+The mRNA leaves the nucleus and travels to a
+<b>ribosome</b> in the cytoplasm.
+During <b>translation</b>, the ribosome reads the mRNA
+three bases at a time as <b>codons</b>.
+</p>
+
+<p>
+<b>tRNA</b> brings the correct amino acids for each codon.
+The amino acids are joined together to form a
+<b>protein</b>.
+</p>
+
+</div>
+</div>
+
+
+<div class="card">
+<h2>Final Submission</h2>
+
+<p>
+Before submitting, go back and correct any answers marked
+<b>Not yet</b>.
+</p>
+
+<p>
+When you are satisfied with your corrections,
+submit your final corrected score.
+</p>
+
+<button id="finalSubmit" onclick="submitFinal()">
+Submit My Final Corrected Score
+</button>
+
+<div id="finalResult" class="feedback"></div>
+</div>
+
+</main>
+
+
+<script>
+
+const status = {};
+
+function clean(s){
+return s.toUpperCase().replace(/[^A-Z]/g,'');
+}
+
+
+function show(id,ok,msg){
+
+status[id]=ok;
+
+let e=document.getElementById(id);
+
+e.style.display='block';
+
+e.className='feedback '+(ok?'good':'bad');
+
+e.textContent=ok
+? 'Yes! '+msg
+: 'Not yet. Look at the rule above, fix your answer, and check it again. If you are unsure why it is wrong, ask a question before moving on.';
+}
+
+
+function checkText(input,answer,fb,pretty){
+
+let ok =
+clean(document.getElementById(input).value) === answer;
+
+show(fb,ok,pretty);
+}
+
+
+function checkAny(input,answers,fb,msg){
+
+let v =
+clean(document.getElementById(input).value);
+
+show(fb,answers.includes(v),msg);
+}
+
+
+function checkProtein(){
+
+let v =
+clean(document.getElementById('p11').value);
+
+let ok =
+(v.includes('METHIONINE') || v.includes('MET')) &&
+(v.includes('ALANINE') || v.includes('ALA')) &&
+(v.includes('PHENYLALANINE') || v.includes('PHE')) &&
+v.includes('STOP');
+
+show(
+'f11',
+ok,
+'Methionine – Alanine – Phenylalanine – STOP'
+);
+}
+
+
+function checkProtein2(){
+
+let v =
+clean(document.getElementById('p13').value);
+
+let ok =
+(v.includes('METHIONINE') || v.includes('MET')) &&
+(v.includes('GLYCINE') || v.includes('GLY')) &&
+(v.includes('LEUCINE') || v.includes('LEU')) &&
+v.includes('STOP');
+
+show(
+'f13',
+ok,
+'Methionine – Glycine – Leucine – STOP'
+);
+}
+
+
+function revealTeacherExplanation(){
+
+const box =
+document.getElementById('studentExplanation');
+
+const response =
+box.value.trim();
+
+const fb =
+document.getElementById('explainFeedback');
+
+if(response.length < 40){
+
+fb.style.display='block';
+
+fb.className='feedback bad';
+
+fb.textContent =
+'Add a little more detail before viewing the teacher explanation. Explain the process from DNA to protein in your own words.';
+
+return;
+}
+
+fb.style.display='block';
+
+fb.className='feedback good';
+
+fb.textContent =
+'Thank you. Now compare your explanation with the teacher explanation below. Add or correct anything you missed before your final submission.';
+
+document.getElementById(
+'teacherExplanation'
+).style.display='block';
+}
+
+
+const endpoint =
+"https://script.google.com/macros/s/AKfycbxfMneexY91o86cxsNrQgqvFY7rtZOiTtw7tsGB7FzqIfgaoOiSPdzwSs0i-HiFmGhd6Q/exec";
+
+
+function submitFinal(){
+
+const name =
+document.getElementById('studentName').value.trim();
+
+const block =
+document.getElementById('block').value;
+
+if(!name || !block){
+
+alert(
+'Please enter your name and choose your block before submitting.'
+);
+
+return;
+}
+
+
+const explanation =
+document.getElementById(
+'studentExplanation'
+).value.trim();
+
+
+if(
+explanation.length < 40 ||
+document.getElementById(
+'teacherExplanation'
+).style.display === 'none'
+){
+
+alert(
+'Complete your final explanation and compare it with the teacher explanation before submitting.'
+);
+
+return;
+}
+
+
+const ids = [
+'f1','f2','f3','f4','f5','f6',
+'f7','f8','f9','f10','f11','f12','f13'
+];
+
+
+const correct =
+ids.filter(id => status[id] === true).length;
+
+const total =
+ids.length;
+
+const pct =
+Math.round(correct / total * 100);
+
+
+const e =
+document.getElementById('finalResult');
+
+
+e.style.display='block';
+
+
+if(correct < total){
+
+e.className='feedback bad';
+
+e.textContent =
+`You currently have ${correct}/${total} steps correct. Go back to the items marked Not yet, make corrections, and check them again before submitting your final score.`;
+
+return;
+}
+
+
+e.className='feedback good';
+
+e.textContent =
+`Final corrected score: ${correct}/${total} (${pct}%). Your final corrected score has been submitted.`;
+
+
+document.getElementById(
+'finalSubmit'
+).disabled=true;
+
+
+const payload =
+new URLSearchParams({
+
+name:name,
+
+studentName:name,
+
+block:block,
+
+quiz:'6B Protein Synthesis Graded Practice',
+
+score:correct,
+
+total:total,
+
+percent:pct,
+
+explanation:explanation,
+
+studentExplanation:explanation,
+
+timestamp:new Date().toLocaleString()
+
+});
+
+
+fetch(
+endpoint,
+{
+method:'POST',
+mode:'no-cors',
+headers:{
+'Content-Type':'application/x-www-form-urlencoded'
+},
+body:payload.toString()
+}
+).catch(()=>{});
+
+}
+
+</script>
+
+</body>
+</html>
